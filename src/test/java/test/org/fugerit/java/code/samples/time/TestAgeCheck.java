@@ -20,6 +20,7 @@ class TestAgeCheck {
     void test18() {
         LocalDate  d = LocalDate.now();
         Assertions.assertFalse( this.check18Worker( d ) );
+        Assertions.assertFalse( this.check18Worker( null ) );   // null is false
         Assertions.assertTrue( this.check18Worker( LocalDate.of( d.getYear()-18, d.getMonthValue(), d.getDayOfMonth()  )  ) ); // test exactly 18 years, true
         Assertions.assertFalse( this.check18Worker( LocalDate.of( d.getYear()-18, d.getMonthValue(), d.getDayOfMonth()+1  )  ) );   // test 18 years -1 day, true
         Assertions.assertTrue( this.check18Worker( LocalDate.of( d.getYear()-30, d.getMonthValue(), d.getDayOfMonth()  )  ) ); // generic test, true
