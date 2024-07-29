@@ -14,6 +14,7 @@
 	<name>Fugerit Code Samples</name>
 	<description>My code samples.</description>
 	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
 	<licenses>
 		<license>
@@ -26,6 +27,11 @@
 	<properties>
 		<fj-version>8.6.4</fj-version>
 	</properties>
+
+	<modules>
+		<module>code-samples-base</module>
+		<module>code-samples-pdfbox2</module>
+	</modules>
 
 	<scm>
 		<connection>scm:git:git://github.com/fugerit-org/code-samples.git</connection>
