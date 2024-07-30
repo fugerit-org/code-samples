@@ -7,10 +7,7 @@ import org.fugerit.java.core.lang.helpers.ClassHelper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 /*
  * Proof of Concept to handle special characters like  U+2002 ('enspace')
@@ -26,30 +23,62 @@ import java.io.InputStream;
 @Slf4j
 class TestSpecialCharacters {
 
-    private static final String TEST_LINE = "Row with special character :  .";      // test line with U+2002 ('enspace')
+    private static final String TEST_LINE = "Row with special character : %s.";      // test line with U+2002 ('enspace')
+
+    private static final String[] SPECIAL_CHARACTERS = {
+            "\u2002",   // 'enspace'
+            "\u2010",   // 'hyphentwo'
+            "\u2033",   // 'second'
+            "\u03BC",   // 'mugreek'
+            "\u039C",   // 'Mu'
+            "\u2212",   // 'minus'
+            "\u0141" ,  // 'Lslash'
+            "\u2103",   // 'centigrade'
+    };
 
     @Test
     void testWithPdfBoxFontHelvetica() throws IOException {
-        try (FileOutputStream fos = new FileOutputStream( "target/test_font_from_pdfbox.pdf" )) {
-            SpecialCharacters sp = new SpecialCharacters();
-            Assertions.assertThrows( IllegalArgumentException.class, () -> {
-                sp.generatePDF( fos, PDType1Font.HELVETICA, TEST_LINE );
-            });
+        SpecialCharacters sp = new SpecialCharacters();
+        for ( int k=0; k<SPECIAL_CHARACTERS.length; k++ ) {
+            String special = SPECIAL_CHARACTERS[k];
+            String line = String.format( TEST_LINE, special );
+            try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+                log.info( "testWithPdfBoxFontHelvetica index:{}, char:{}, line:{}", k, special, line );
+                Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    sp.generatePDF(os, PDType1Font.HELVETICA, line);
+                });
+            }
         }
-
     }
 
     @Test
     void testWithExternalHelvetica() throws IOException {
-        File pdfFile = new File( "target/test_font_external.pdf" );
-        log.info( "pdfFile: {}, delete: {}", pdfFile, pdfFile.delete() );
-        Assertions.assertFalse( pdfFile.exists() );
-        try ( InputStream fontIS = ClassHelper.loadFromClassLoader( "font/Helvetica.ttf" );
-                FileOutputStream fos = new FileOutputStream( pdfFile ) ) {
-            SpecialCharacters sp = new SpecialCharacters();
-            sp.generatePDF( fos, fontIS, TEST_LINE );
+        // some characters are still not available on all font, for instance in this example :
+        // "\uFFFD",   // '.notdef'
+        // "\u25AA",   // 'H18543'
+        SpecialCharacters sp = new SpecialCharacters();
+        for ( int k=0; k<SPECIAL_CHARACTERS.length; k++ ) {
+            String special = SPECIAL_CHARACTERS[k];
+            String line = String.format( TEST_LINE, special );
+            File pdfFile = new File( String.format( "target/test_font_external_%s.pdf", k ) );
+            log.info( "pdfFile: {}, delete: {}", pdfFile, pdfFile.delete() );
+            Assertions.assertFalse( pdfFile.exists() );
+            try (InputStream fontIS = ClassHelper.loadFromClassLoader( "font/Helvetica.ttf" );
+                 OutputStream os = new FileOutputStream( pdfFile ) ) {
+                log.info( "testWithExternalHelvetica index:{}, char:{}, line:{}", k, special, line );
+                sp.generatePDF(os, fontIS, line);
+            }
+            Assertions.assertTrue( pdfFile.exists() );
         }
-        Assertions.assertTrue( pdfFile.exists() );
+    }
+
+    @Test
+    void testWithPdfBoxFontHelveticaNormalLine() throws IOException {
+        try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
+            SpecialCharacters sp = new SpecialCharacters();
+            sp.generatePDF( os, PDType1Font.HELVETICA, "Normal line" );
+            Assertions.assertNotEquals( 0, os.toByteArray().length );
+        }
     }
 
 }
