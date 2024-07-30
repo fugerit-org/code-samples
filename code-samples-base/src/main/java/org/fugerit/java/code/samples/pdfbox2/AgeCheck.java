@@ -1,4 +1,4 @@
-package org.fugerit.java.code.samples.time;
+package org.fugerit.java.code.samples.pdfbox2;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

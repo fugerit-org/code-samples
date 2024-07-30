@@ -11,7 +11,7 @@
 		<relativePath/>
 	</parent>
 
-	<name>Fugerit Code Samples</name>
+	<name>Fugerit Code Samples PDFBOX 2</name>
 	<description>My code samples.</description>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>

@@ -1,7 +1,7 @@
-package test.org.fugerit.java.code.samples.time;
+package test.org.fugerit.java.code.samples.pdfbox2;
 
 import lombok.extern.slf4j.Slf4j;
-import org.fugerit.java.code.samples.time.AgeCheck;
+import org.fugerit.java.code.samples.pdfbox2.AgeCheck;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
