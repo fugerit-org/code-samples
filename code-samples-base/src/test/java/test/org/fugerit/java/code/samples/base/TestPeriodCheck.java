@@ -12,9 +12,9 @@ class TestPeriodCheck {
 
     @Test
     void testWeekCheck() {
-        Assertions.assertTrue(PeriodCheck.everyWeeekFrom( LocalDate.of( 2024, 7, 25 ), LocalDate.of( 2024, 8, 8 ) ) );
-        Assertions.assertTrue(PeriodCheck.everyWeeekFrom( LocalDate.of( 2024, 8, 1 ), LocalDate.of( 2024, 8, 8 ) ) );
-        Assertions.assertFalse(PeriodCheck.everyWeeekFrom( LocalDate.of( 2024, 7, 26 ), LocalDate.of( 2024, 8, 8 ) ) );
+        Assertions.assertTrue(PeriodCheck.everyWeekFrom( LocalDate.of( 2024, 7, 25 ), LocalDate.of( 2024, 8, 8 ) ) );
+        Assertions.assertTrue(PeriodCheck.everyWeekFrom( LocalDate.of( 2024, 8, 1 ), LocalDate.of( 2024, 8, 8 ) ) );
+        Assertions.assertFalse(PeriodCheck.everyWeekFrom( LocalDate.of( 2024, 7, 26 ), LocalDate.of( 2024, 8, 8 ) ) );
     }
 
 }

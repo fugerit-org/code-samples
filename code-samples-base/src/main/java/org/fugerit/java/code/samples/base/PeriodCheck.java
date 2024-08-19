@@ -12,7 +12,7 @@ public class PeriodCheck {
     }
 
 
-    public static Boolean everyWeeekFrom(LocalDate fromDate, LocalDate testDate) {
+    public static Boolean everyWeekFrom(LocalDate fromDate, LocalDate testDate) {
         return everyNumberOfDaysDateFrom(fromDate, testDate, 7);
     }
 
