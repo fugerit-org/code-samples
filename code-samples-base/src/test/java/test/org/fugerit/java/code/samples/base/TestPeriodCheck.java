@@ -1,13 +1,11 @@
 package test.org.fugerit.java.code.samples.base;
 
 import lombok.extern.slf4j.Slf4j;
-import org.fugerit.java.code.samples.base.AgeCheck;
 import org.fugerit.java.code.samples.base.PeriodCheck;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 @Slf4j
 class TestPeriodCheck {

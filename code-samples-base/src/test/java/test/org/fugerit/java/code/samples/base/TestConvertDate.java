@@ -43,7 +43,5 @@ class TestModel {
     }
 
     private LocalDate birthDateD;
-
-    private String birthDate;
     
 }
