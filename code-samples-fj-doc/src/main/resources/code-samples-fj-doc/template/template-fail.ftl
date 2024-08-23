@@ -29,7 +29,7 @@
     </metadata>
     <body>
     <para>${docTitle!defaultTitle}</para>
-    <para>${messageFormat(params['prop1'], 'Elrond')}</para>
+    <para>${messageFormat(params['prop1''], 'Elrond')}</para>
     </body>
 
 </doc>

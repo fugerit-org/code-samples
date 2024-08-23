@@ -2,6 +2,7 @@ package test.testorg.fugerit.java.codesamplesfjdoc;
 
 import lombok.extern.slf4j.Slf4j;
 import org.fugerit.java.codesamplesfjdoc.DocHelper;
+import org.fugerit.java.core.cfg.ConfigRuntimeException;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.doc.base.process.DocProcessContext;
 import org.junit.jupiter.api.Assertions;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.text.ParseException;
 import java.util.Properties;
 
 /**
@@ -25,8 +27,7 @@ import java.util.Properties;
 @Slf4j
 class MessageFormatTest {
 
-    @Test
-    void test() throws IOException {
+    private int generate() throws IOException {
         try ( ByteArrayOutputStream baos = new ByteArrayOutputStream() ) {
             // creates the doc helper
             DocHelper docHelper = new DocHelper();
@@ -39,8 +40,13 @@ class MessageFormatTest {
             docHelper.getDocProcessConfig().fullProcess( "message-format", DocProcessContext.newContext( "params", params ), handlerId, baos );
             // print the output
             log.info( "html output : \n{}", new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
-            Assertions.assertNotEquals( 0, baos.size() );
+            return baos.size();
         }
+    }
+
+    @Test
+    void test() throws IOException {
+        Assertions.assertNotEquals(0, generate() );
     }
 
     /*
