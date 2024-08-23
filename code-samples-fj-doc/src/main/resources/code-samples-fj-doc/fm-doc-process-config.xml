@@ -45,4 +45,9 @@
         <chainStep stepType="complex" map-atts="listPeople" template-path="${chainId}.ftl"/>
     </docChain>
 
+    <!-- example document chain -->
+    <docChain id="message-format" parent="shared">
+        <chainStep stepType="complex" map-atts="params" template-path="${chainId}.ftl"/>
+    </docChain>
+
 </freemarker-doc-process-config>
