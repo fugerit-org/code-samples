@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- module fj-doc
 - Hour check
 - Period check test
 - POC PDFBox line wrapping
