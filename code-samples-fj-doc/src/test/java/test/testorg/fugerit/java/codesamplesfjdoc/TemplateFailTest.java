@@ -45,7 +45,7 @@ class TemplateFailTest {
 
 
     @Test
-    void test() throws IOException {
+    void test() {
         Assertions.assertThrows( ConfigRuntimeException.class, () -> generate() );
     }
 

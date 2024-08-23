@@ -37,7 +37,7 @@ class VerifyTemplateTest {
     private Collection<String> verifyTemplateSyntaxErrors() throws IOException {
         List<String> errors = new ArrayList<>();
         File baseFolder = new File( "src/main/resources/code-samples-fj-doc/template/" );
-        Configuration cfg = new Configuration();
+        Configuration cfg = new Configuration( Configuration.VERSION_2_3_33 );
         cfg.setDirectoryForTemplateLoading( baseFolder );
         this.verifyTemplateSyntaxErrorsIterate( baseFolder, errors, cfg, baseFolder );
         return errors;
