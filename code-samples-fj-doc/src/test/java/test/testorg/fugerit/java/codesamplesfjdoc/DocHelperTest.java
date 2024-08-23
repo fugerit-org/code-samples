@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.fugerit.java.codesamplesfjdoc.DocHelper;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.doc.base.process.DocProcessContext;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -38,6 +39,7 @@ class DocHelperTest {
             docHelper.getDocProcessConfig().fullProcess( "document", DocProcessContext.newContext( "listPeople", listPeople ), handlerId, baos );
             // print the output
             log.info( "html output : \n{}", new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
+            Assertions.assertNotEquals( 0, baos.size() );
         }
     }
 
