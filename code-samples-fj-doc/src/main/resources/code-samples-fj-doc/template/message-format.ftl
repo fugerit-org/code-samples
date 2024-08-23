@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<#import "lib/macro.ftl" as m>
 <doc
         xmlns="http://javacoredoc.fugerit.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -30,6 +31,7 @@
     <body>
     <para>${docTitle!defaultTitle}</para>
     <para>${messageFormat(params['prop1'], 'Galadriel')}</para>
+    <para><@m.simpleMacro param1='print text'/></para>
     </body>
 
 </doc>
