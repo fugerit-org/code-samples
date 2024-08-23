@@ -32,10 +32,10 @@ class TestConvertFacade {
 
     private void testWorker( ConvertFacade facade ) {
         for ( String original : Arrays.asList( TEXT_SIZE_1, TEXT_SIZE_2, TEXT_SIZE_3, TEXT_SIZE_4, TEXT_SIZE_5 ) ) {
-            String data = facade.getUtil().store( original );
+            String data = facade.store( original );
             BigDecimal gain = new BigDecimal( 100D-((double)data.length())/((double)original.length())*100D ).setScale( 2, RoundingMode.HALF_EVEN );
             log.info( " original length : {}, store length : {}, gain : {}, Convert FQCN {}, data : {}", original.length(), data.length(), gain, facade.getUtil().getClass().getName(), data );
-            String load = facade.getUtil().load( data );
+            String load = facade.load( data );
             Assertions.assertEquals( original, load );
         }
     }
