@@ -1,9 +1,13 @@
-package org.fugerit.java.codesamplesfjdoc;
+package test.testorg.fugerit.java.codesamplesfjdoc;
 
+import lombok.extern.slf4j.Slf4j;
+import org.fugerit.java.codesamplesfjdoc.DocHelper;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.doc.base.process.DocProcessContext;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
@@ -13,31 +17,27 @@ import java.util.List;
  * running this main the program will :
  * - creates data to be used in document model
  * - renders the 'document.ftl' template
- * - print the result in markdown format on the stanndard output
+ * - print the result in markdown format on the log
  *
  * For further documentation :
  * https://github.com/fugerit-org/fj-doc
- *
- * NOTE: This is a 'Hello World' style example, adapt it to your scenario, especially :
- *  - remove system out and system err with your logging system
- *  - change the doc handler and the output mode (here a ByteArrayOutputStream buffer is used)
  */
-public class DocHelperExample {
+@Slf4j
+class DocHelperTest {
 
-    public static void main(String[] args) {
+    @Test
+    void example() throws IOException {
         try ( ByteArrayOutputStream baos = new ByteArrayOutputStream() ) {
             // creates the doc helper
             DocHelper docHelper = new DocHelper();
             // create custom data for the fremarker template 'document.ftl'
-            List<People> listPeople = Arrays.asList( new DocHelperExample.People( "Luthien", "Tinuviel", "Queen" ), new DocHelperExample.People( "Thorin", "Oakshield", "King" ) );
+            List<People> listPeople = Arrays.asList( new People( "Luthien", "Tinuviel", "Queen" ), new People( "Thorin", "Oakshield", "King" ) );
             // handler id
             String handlerId = DocConfig.TYPE_MD;
             // output generation
             docHelper.getDocProcessConfig().fullProcess( "document", DocProcessContext.newContext( "listPeople", listPeople ), handlerId, baos );
             // print the output
-            System.out.println( "html output : \n"+ new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
-        } catch (Exception e) {
-            e.printStackTrace();
+            log.info( "html output : \n{}", new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
         }
     }
 
