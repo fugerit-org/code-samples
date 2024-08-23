@@ -16,7 +16,7 @@
         https://venusguides.fugerit.org/src/docs/common/doc_format_summary.html
     -->
 
-    <#assign defaultTitle="Message fun test template">
+    <#assign defaultTitle="Template fail test">
 
     <metadata>
         <!-- Margin for document : left;right;top;bottom -->
@@ -29,7 +29,7 @@
     </metadata>
     <body>
     <para>${docTitle!defaultTitle}</para>
-    <para>${messageFormat(params['prop1'], 'Galadriel')}</para>
+    <para>${messageFormat(params['prop1'], 'Elrond')}</para>
     </body>
 
 </doc>

@@ -23,20 +23,20 @@ import java.util.Properties;
  * https://github.com/fugerit-org/fj-doc
  */
 @Slf4j
-class MessageFormatTest {
+class TemplateFailTest {
 
     @Test
     void test() throws IOException {
         try ( ByteArrayOutputStream baos = new ByteArrayOutputStream() ) {
             // creates the doc helper
             DocHelper docHelper = new DocHelper();
-            // create custom data for the fremarker template 'message-format.ftl'
+            // create custom data for the fremarker template 'template-fail.ftl'
             Properties params = new Properties();
-            params.setProperty( "prop1", "The Queel of Lorien is {0}" );
+            params.setProperty( "prop1", "The king of Rivendell is {0}" );
             // handler id
             String handlerId = DocConfig.TYPE_MD;
             // output generation
-            docHelper.getDocProcessConfig().fullProcess( "message-format", DocProcessContext.newContext( "params", params ), handlerId, baos );
+            docHelper.getDocProcessConfig().fullProcess( "template-fail", DocProcessContext.newContext( "params", params ), handlerId, baos );
             // print the output
             log.info( "html output : \n{}", new String( baos.toByteArray(), StandardCharsets.UTF_8 ) );
             Assertions.assertNotEquals( 0, baos.size() );

@@ -45,8 +45,13 @@
         <chainStep stepType="complex" map-atts="listPeople" template-path="${chainId}.ftl"/>
     </docChain>
 
-    <!-- example document chain -->
+    <!-- example messageFormat chain -->
     <docChain id="message-format" parent="shared">
+        <chainStep stepType="complex" map-atts="params" template-path="${chainId}.ftl"/>
+    </docChain>
+
+    <!-- example template fail chain -->
+    <docChain id="template-fail" parent="shared">
         <chainStep stepType="complex" map-atts="params" template-path="${chainId}.ftl"/>
     </docChain>
 
