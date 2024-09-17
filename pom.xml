@@ -32,6 +32,8 @@
 		<module>code-samples-base</module>
 		<module>code-samples-pdfbox2</module>
 		<module>code-samples-fj-doc</module>
+		<module>code-samples-openpdf</module>
+		<module>code-samples-itext2</module>
 	</modules>
 
 	<scm>

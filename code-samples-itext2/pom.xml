@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>code-samples-itext2</artifactId>
+
+	<parent>
+		<groupId>org.fugerit.java</groupId>
+		<artifactId>code-samples</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<name>Fugerit Code Samples IText 2</name>
+	<description>My code samples.</description>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<properties>
+		<itext-version>2.1.7</itext-version>
+	</properties>
+
+	<scm>
+		<connection>scm:git:git://github.com/fugerit-org/code-samples.git</connection>
+		<developerConnection>scm:git:ssh://github.com/fugerit-org/code-samples.git</developerConnection>
+		<url>https://github.com/fugerit-org/code-samples.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>${itext-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext-rtf</artifactId>
+			<version>${itext-version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<organization>
+		<url>https://www.fugerit.org</url>
+		<name>Fugerit</name>
+	</organization>
+	
+	<url>https://www.fugerit.org/</url>
+	
+</project>
