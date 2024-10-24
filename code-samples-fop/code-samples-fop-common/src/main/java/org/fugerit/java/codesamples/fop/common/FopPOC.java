@@ -7,17 +7,14 @@ import org.apache.xmlgraphics.io.ResourceResolver;
 import org.apache.xmlgraphics.util.MimeConstants;
 import org.fugerit.java.core.function.SafeFunction;
 import org.fugerit.java.core.lang.helpers.ClassHelper;
-import org.fugerit.java.doc.mod.fop.FopConfig;
 import org.fugerit.java.doc.mod.fop.PdfFopTypeHandler;
 import org.fugerit.java.doc.mod.fop.config.FopConfigClassLoaderWrapper;
-import org.xml.sax.InputSource;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
