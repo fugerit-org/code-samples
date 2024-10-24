@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>code-samples-fop</artifactId>
+
+	<parent>
+		<groupId>org.fugerit.java</groupId>
+		<artifactId>code-samples</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<name>Fugerit Code Samples Fop Parent</name>
+	<description>My code samples.</description>
+	<packaging>pom</packaging>
+
+	<properties>
+		<fj-doc-version>8.10.1</fj-doc-version>
+	</properties>
+
+
+	<modules>
+		<module>code-samples-fop-common</module>
+		<module>code-samples-fop-latest</module>
+		<module>code-samples-fop-2-9</module>
+	</modules>
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<dependency>
+				<groupId>org.fugerit.java</groupId>
+				<artifactId>code-samples-fop-common</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.fugerit.java</groupId>
+				<artifactId>fj-doc-mod-fop</artifactId>
+				<version>${fj-doc-version}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+</project>
