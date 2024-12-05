@@ -21,6 +21,8 @@
         <docHandler id="html-fm" info="html" type="org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8" />
         <!-- Type handler for html using freemarker (fragment version, only generates body content no html or head part -->
         <docHandler id="html-fragment-fm" info="fhtml" type="org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8" />
+        <!-- Simple default PDF FOP Type handler with no added configuration   -->
+        <docHandler id="pdf-fop" info="pdf" type="org.fugerit.java.doc.mod.fop.PdfFopTypeHandler"/>
     </docHandlerConfig>
 
     <docChain id="shared">
@@ -54,5 +56,11 @@
     <docChain id="template-fail" parent="shared">
         <chainStep stepType="complex" map-atts="params" template-path="${chainId}.ftl"/>
     </docChain>
+
+    <!-- example document chain -->
+    <docChain id="endline-fop" parent="shared">
+        <chainStep stepType="complex" template-path="${chainId}.ftl"/>
+    </docChain>
+
 
 </freemarker-doc-process-config>
