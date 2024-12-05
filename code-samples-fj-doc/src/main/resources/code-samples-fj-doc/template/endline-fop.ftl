@@ -27,6 +27,8 @@
 as a single line.</para>
     <para white-space-collapse="preserve">This will be rendered
 as two lines.</para>
+    <para white-space-collapse="preserve">${labels['endline.prop']}</para>
+
     </body>
 
 </doc>

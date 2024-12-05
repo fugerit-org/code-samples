@@ -59,7 +59,7 @@
 
     <!-- example document chain -->
     <docChain id="endline-fop" parent="shared">
-        <chainStep stepType="complex" template-path="${chainId}.ftl"/>
+        <chainStep stepType="complex" map-atts="labels" template-path="${chainId}.ftl"/>
     </docChain>
 
 
