@@ -46,7 +46,7 @@ class TemplateFailTest {
 
     @Test
     void test() {
-        Assertions.assertThrows( ConfigRuntimeException.class, () -> generate() );
+        Assertions.assertThrows( ConfigRuntimeException.class, this::generate);
     }
 
     /*
