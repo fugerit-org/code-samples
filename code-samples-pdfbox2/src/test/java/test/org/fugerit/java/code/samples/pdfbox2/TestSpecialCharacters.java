@@ -105,7 +105,7 @@ class TestSpecialCharacters {
                 try (InputStream fontIS = ClassHelper.loadFromClassLoader( fontPath );
                      OutputStream os = new FileOutputStream( pdfFile ) ) {
                     log.info( "test '{}' index:{}, char:{}, line:{}", ttf, k, special, line );
-                    sp.generatePDF(os, fontIS, line);
+                    sp.generatePDF(os, fontIS, String.format( "%s (%s)", line, ttf ) );
                 } catch (Exception e) {
                     log.error( "error on font : {} - {}", ttf, e.getMessage() );
                     pdfFile.delete();
