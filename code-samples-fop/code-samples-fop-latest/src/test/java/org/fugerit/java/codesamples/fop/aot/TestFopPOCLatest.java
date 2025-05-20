@@ -1,4 +1,4 @@
-package test.org.fugerit.java.codesamples.fop.latest;
+package org.fugerit.java.codesamples.fop.aot;
 
 import lombok.extern.slf4j.Slf4j;
 import org.fugerit.java.codesamples.fop.common.FopPOC;

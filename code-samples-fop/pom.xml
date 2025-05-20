@@ -23,6 +23,7 @@
 		<module>code-samples-fop-common</module>
 		<module>code-samples-fop-latest</module>
 		<module>code-samples-fop-2-9</module>
+		<module>code-samples-fop-aot</module>
 	</modules>
 
 	<dependencyManagement>

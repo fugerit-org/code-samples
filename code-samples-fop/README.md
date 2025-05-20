@@ -24,6 +24,6 @@ And the two junit testing version 2.9 and 2.10 output :
 
 `test.org.fugerit.java.codesamples.fop.fop29.TestFopPOC29`
 
-`test.org.fugerit.java.codesamples.fop.latest.TestFopPOCLatest`
+`org.fugerit.java.codesamples.fop.aot.TestFopPOCAOT`
 
 The issue seems to be actually fixed.

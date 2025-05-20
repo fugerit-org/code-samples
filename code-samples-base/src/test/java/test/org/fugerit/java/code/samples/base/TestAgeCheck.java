@@ -5,11 +5,48 @@ import org.fugerit.java.code.samples.base.AgeCheck;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 @Slf4j
 class TestAgeCheck {
+
+
+    @Test
+    void testFormat() {
+        Assertions.assertEquals( "Test 1", "Test %s".formatted( "1" ) );
+
+    }
+
+    @Test
+    void testMaggiorenne1() throws DatatypeConfigurationException {
+        Assertions.assertFalse( Character.isUpperCase( '1' ) );
+
+    }
+
+    private static boolean maggiorenne(XMLGregorianCalendar datanascita){
+        LocalDate d = datanascita.toGregorianCalendar().getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        return Period.between(d, LocalDate.now()).getYears() >= 18;
+    }
+
+    @Test
+    void testMaggiorenne() throws DatatypeConfigurationException {
+        GregorianCalendar calendar = new GregorianCalendar();
+        Assertions.assertFalse( maggiorenne( DatatypeFactory.newInstance().newXMLGregorianCalendar( calendar ) ) );
+        // Subtract 20 years from the current date
+        calendar.add(Calendar.YEAR, -20);
+        // Create a new XMLGregorianCalendar from the updated GregorianCalendar
+        XMLGregorianCalendar xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+        Assertions.assertTrue( maggiorenne( xmlCalendar ) );
+
+    }
 
     private boolean testWorkerModule7( LocalDate d1, LocalDate d2 ) {
         boolean result = (ChronoUnit.DAYS.between( d1, d2 )%7==0);
