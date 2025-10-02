@@ -35,6 +35,7 @@
 		<module>code-samples-openpdf</module>
 		<module>code-samples-itext2</module>
 		<module>code-samples-fop</module>
+        <module>code-samples-tiff</module>
 	</modules>
 
 	<scm>
